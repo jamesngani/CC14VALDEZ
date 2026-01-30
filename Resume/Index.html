@@ -3,64 +3,739 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nicanor James Matthew Valdez - Resume</title>
     <style>
-    body {
-        max-width: 800px; 
-        margin: 40px auto;
-        line-height: 1.6;
-        color:rgb(0, 0, 0)
-    };
-    </style> 
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .header-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .contact-bar {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+        
+        /* Navigation */
+        .nav-pills {
+            background-color: #ecf0f1;
+            padding: 20px 50px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .pill {
+            background-color: white;
+            border: 2px solid #3498db;
+            color: #3498db;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pill.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Content */
+        .content {
+            padding: 50px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 5px solid #3498db;
+            font-weight: 700;
+        }
+        
+        .card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .target-position h3 {
+            color: #3498db;
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+        
+        .summary-text {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        /* Education */
+        .education-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .education-item::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            color: #3498db;
+        }
+        
+        .education-item h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .education-item h4 {
+            color: #3498db;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .education-item p {
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-card h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            color: #3498db;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .placeholder-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #856404;
+        }
+        
+        /* Certifications */
+        .cert-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #27ae60;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cert-icon {
+            font-size: 2em;
+            color: #27ae60;
+        }
+        
+        .cert-details h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-details p {
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+        
+        /* Languages */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .language-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .flag {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .language-card h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .proficiency {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        /* Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .interest-card {
+            height: 300px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .interest-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interest-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .interest-content h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .interest-content p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tech-interest {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .skill-card h3 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .skill-name {
+            color: #495057;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+        
+        .skill-level {
+            color: #3498db;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        @media (max-width: 968px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+            
+            .header-content h1 {
+                font-size: 2em;
+            }
+            
+            .contact-bar {
+                justify-content: center;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .skills-grid, .projects-grid, .languages-grid, .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <h1>Nicanor James Matthew Valdez</h1>
-    <div class="container">
-  <img src="ID.jfif" alt="Profile Image">
-</div>
-
-
-
-    <p>Trancoville, Baguio City | 0956 461 2719 | jamesv@gmail.com</p>
-    <hr style="height:5px; border:none; background-color:rgb(0, 0, 0);">
-
-
-    <h2>Target Position</h2>
-     <hr style="height:2px; border:none; background-color:rgb(0, 0, 0);">
-    <h4>Entry-Level IT Professional / IT Support / Junior Developer / Junior Network Technician</h4>
-
-    <h2>Summary</h2>
-     <hr style="height:2px; border:none; background-color:rgb(0, 0, 0);">
-    <p>Motivated Bachelor of Science in Information Technology (BSIT) student with a 
-        strong foundation in computer systems, programming fundamentals, and technical problem-solving. Eager to apply 
-        academic knowledge and hands-on learning to an entry-level IT role. Highly adaptable, detail-oriented, and 
-        committed to continuous learning in a fast-paced technology environment. </p>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="james.png.png" alt="Profile Photo" class="profile-photo">
+            <div class="header-content">
+                <h1>Nicanor James Matthew Valdez</h1>
+                <div class="tagline">"Piolo Pascual ng Tondo"</div>
+                <div class="contact-bar">
+                    <div class="contact-item">Trancoville, Baguio City</div>
+                    <div class="contact-item">0956 461 2719</div>
+                    <div class="contact-item">nicanor.work@gmail.com</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-pills">
+            <button class="pill" onclick="scrollToSection('target-position')">Target</button>
+            <button class="pill" onclick="scrollToSection('summary')">About</button>
+            <button class="pill" onclick="scrollToSection('education')">Education</button>
+            <button class="pill" onclick="scrollToSection('certifications')">Certifications</button>
+            <button class="pill" onclick="scrollToSection('projects')">Projects</button>
+            <button class="pill" onclick="scrollToSection('skills')">Skills</button>
+            <button class="pill" onclick="scrollToSection('languages')">Languages</button>
+            <button class="pill" onclick="scrollToSection('interests')">Interests</button>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Target Position -->
+            <div class="section" id="target-position">
+                <h2 class="section-title">Target Position</h2>
+                <div class="card target-position">
+                    <h3>Entry-Level IT Professional | IT Support Specialist | Junior Developer | Junior Network Technician</h3>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <div class="section" id="summary">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="card">
+                    <p class="summary-text">
+                        Energetic and tech-savvy BSIT student with a passion for solving problems (especially the ones that involve turning it off and on again... professionally, of course!). 
+                        Armed with a solid foundation in programming, networking, and an unhealthy amount of curiosity about how things work under the hood. 
+                        Whether it's troubleshooting network issues, writing clean code, or configuring systems, I bring enthusiasm, adaptability, and a genuine love for technology. 
+                        Currently seeking an opportunity to transform caffeine into code and contribute to innovative projects while continuously expanding my skill set.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="card">
+                    <div class="education-item">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <h4>Major in Enterprise Resource Planning</h4>
+                        <h4>University of the Cordilleras</h4>
+                        <p>Baguio City, Philippines</p>
+                        <p><strong>Expected Graduation:</strong> 2026-2027</p>
+                        <p style="margin-top: 10px; color: #555;"><em>Where I learned that "works on my machine" is not an acceptable answer in production.</em></p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h3>Senior High School</h3>
+                        <h4>Accountancy, Business and Management Track</h4>
+                        <h4>Mother Goose Special Science High School</h4>
+                        <p>Baguio City, Philippines</p>
+                        <p><strong>Graduated:</strong> 2022-2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="section" id="certifications">
+                <h2 class="section-title">Certifications & Training</h2>
+                <div class="card">
+                    <div class="cert-item">
+                        <div class="cert-icon">&#9733;</div>
+                        <div class="cert-details">
+                            <h4>Cisco CCNA (Cisco Certified Network Associate)</h4>
+                            <p>Network Configuration & Management Training</p>
+                            <p style="font-style: italic; color: #3498db;">Because sometimes you need to break a virtual network before fixing a real one!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects -->
+            <div class="section" id="projects">
+                <h2 class="section-title">Projects & Practical Experience</h2>
+                <div class="card">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h4>CCNA Network Configuration Lab</h4>
+                            <p class="tech-stack">Cisco Packet Tracer | Network Design | CCNA</p>
+                            <p>Designed and simulated enterprise network topologies, configured routers and switches, and implemented VLANs and routing protocols. Gained hands-on experience in network troubleshooting and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="section" id="skills">
+                <h2 class="section-title">Skills & Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Technical Skills</h3>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Computer Troubleshooting (HW/SW)</span>
+                                <span class="skill-level">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Programming (Java, Python, C++)</span>
+                                <span class="skill-level">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Web Development (HTML, CSS)</span>
+                                <span class="skill-level">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Network Configuration (CCNA)</span>
+                                <span class="skill-level">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Database Management (MySQL)</span>
+                                <span class="skill-level">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Operating Systems (Windows, Linux)</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Soft Skills</h3>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Problem-Solving & Critical Thinking</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Strong Communication</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Team Collaboration</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Time Management</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Adaptability & Growth Mindset</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Attention to Detail</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Languages -->
+            <div class="section" id="languages">
+                <h2 class="section-title">Languages</h2>
+                <div class="card">
+                    <div class="languages-grid">
+                        <div class="language-card">
+                            <div class="flag">&#127468;&#127463;</div>
+                            <h4>English</h4>
+                            <p class="proficiency">Fluent</p>
+                            <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 8px;">Professional working proficiency</p>
+                        </div>
+                        
+                        <div class="language-card">
+                            <div class="flag">&#127477;&#127469;</div>
+                            <h4>Filipino</h4>
+                            <p class="proficiency">Native</p>
+                            <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 8px;">Native speaker</p>
+                        </div>
+                        
+                        <div class="language-card">
+                            <div class="flag">&#127481;&#127469;</div>
+                            <h4>Thai</h4>
+                            <p class="proficiency">Basic</p>
+                            <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 8px;">Hangang Sawadika lang po</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interests -->
+            <div class="section" id="interests">
+                <h2 class="section-title">Interests & Hobbies</h2>
+                <div class="card">
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <img src="motogp.jfif" alt="Motorcycle" class="interest-bg">
+                            <div class="interest-content">
+                                <h4>Motorcycle Enthusiast</h4>
+                                <p>Passion for motorcycles and mechanics - because understanding how engines work translates perfectly to debugging code!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="interest-card">
+                            <img src="porsche.jpg" alt="Automotive" class="interest-bg">
+                            <div class="interest-content">
+                                <h4>Automotive Technology</h4>
+                                <p>Car enthusiast who appreciates both the mechanical and electronic systems. Modern cars are basically computers on wheels anyway!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="section">
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 40px;">
+                    <h2 style="font-size: 2em; margin-bottom: 15px;">Ready to Start Contributing!</h2>
+                    <p style="font-size: 1.2em; margin-bottom: 20px; opacity: 0.95;">
+                        Looking for an opportunity to bring fresh energy, technical skills, and a problem-solving mindset to your team.
+                    </p>
+                    <p style="font-size: 1em; opacity: 0.9;">
+                        Let's connect and discuss how I can contribute to your organization's success!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <h2>Education</h2>
-    <hr style="height:2px; border:none; background-color:rgb(0, 0, 0);">
-    <h3>Bachelor of Science in Information Technology Major in Enterprise Resource Planning</h3>
-    <h4>University of the Cordilleras</h4>
-    <p>Baguio City</p>
-    <p>Expected Graduation: 2026-2027</p>
-
-    <h2>Experience</h2>
-    <hr style="height:2px; border:none; background-color:rgb(0, 0, 0);">
-
-    <h2>Skills</h2>
-    <h3>Technical Skills</h3>
-    <li>Basic Computer Troubleshooting (Hardware & Software)</li>
-    <li>Programming Fundamentals (Java, Python, C++ – basic level)</li>
-    <li>Web Basics (HTML, CSS)</li>
-    <li>Database Fundamentals (MySQL – basic)</li>
-    <li>Operating Systems (Windows, basic Linux knowledge)</li>
-
-    <H3>Soft Skills</H3>
-    <li>Problem-Solving & Critical Thinking</li>
-    <li>Strong Communication Skills</li>
-    <li>Team Collaboration</li>
-    <li>Time Management</li>
-    <li>Adaptability & Willingness to Learn</li>
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            document.querySelectorAll('.pill').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
 </body>
 </html>
