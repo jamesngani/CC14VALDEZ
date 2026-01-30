@@ -5,428 +5,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicanor James Matthew Valdez - Resume</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #2c3e50;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .resume-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #fff;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 60px 50px;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 6px solid white;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .header-content {
-            flex: 1;
-        }
-        
-        .header-content h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        
-        .tagline {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        
-        .contact-bar {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95em;
-        }
-        
-        /* Navigation */
-        .nav-pills {
-            background-color: #ecf0f1;
-            padding: 20px 50px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            border-bottom: 3px solid #3498db;
-        }
-        
-        .pill {
-            background-color: white;
-            border: 2px solid #3498db;
-            color: #3498db;
-            padding: 10px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .pill.active {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        /* Content */
-        .content {
-            padding: 50px;
-        }
-        
-        .section {
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 5px solid #3498db;
-            font-weight: 700;
-        }
-        
-        .card {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .target-position h3 {
-            color: #3498db;
-            font-size: 1.3em;
-            line-height: 1.6;
-        }
-        
-        .summary-text {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.9;
-        }
-        
-        /* Education */
-        .education-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 25px;
-        }
-        
-        .education-item::before {
-            content: '●';
-            position: absolute;
-            left: 0;
-            font-size: 1.5em;
-            color: #3498db;
-        }
-        
-        .education-item h3 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-bottom: 8px;
-        }
-        
-        .education-item h4 {
-            color: #3498db;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-        
-        .education-item p {
-            color: #7f8c8d;
-            margin: 5px 0;
-        }
-        
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .project-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .project-card h4 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        
-        .tech-stack {
-            color: #3498db;
-            font-size: 0.9em;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .project-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .placeholder-notice {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 8px;
-            font-style: italic;
-            color: #856404;
-        }
-        
-        /* Certifications */
-        .cert-item {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            border-left: 4px solid #27ae60;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .cert-icon {
-            font-size: 2em;
-            color: #27ae60;
-        }
-        
-        .cert-details h4 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .cert-details p {
-            color: #7f8c8d;
-            font-size: 0.95em;
-        }
-        
-        /* Languages */
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .language-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .flag {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .language-card h4 {
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-        
-        .proficiency {
-            color: #3498db;
-            font-weight: 600;
-        }
-        
-        /* Interests */
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .interest-card {
-            height: 300px;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .interest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        
-        .interest-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .interest-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            padding: 30px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-        
-        .interest-content h4 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .interest-content p {
-            font-size: 1.05em;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .tech-interest {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-        
-        .skill-card h3 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: 1.4em;
-            font-weight: 700;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .skill-item {
-            margin-bottom: 25px;
-        }
-        
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .skill-name {
-            color: #495057;
-            font-size: 1.05em;
-            font-weight: 500;
-        }
-        
-        .skill-level {
-            color: #3498db;
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .skill-fill {
-            height: 100%;
-            background: linear-gradient(to right, #3498db, #2980b9);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
-        }
-        
-        @media (max-width: 968px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 30px;
-            }
-            
-            .header-content h1 {
-                font-size: 2em;
-            }
-            
-            .contact-bar {
-                justify-content: center;
-            }
-            
-            .content {
-                padding: 30px 25px;
-            }
-            
-            .skills-grid, .projects-grid, .languages-grid, .interests-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ font-family:'Helvetica Neue',Arial,sans-serif;
+ background:linear-gradient(135deg,#f5f7fa,#c3cfe2);
+ color:#2c3e50;line-height:1.6;padding:20px
+}
+
+.resume-container{
+ max-width:1200px;margin:auto;background:#fff;
+ border-radius:20px;overflow:hidden;
+ box-shadow:0 10px 40px rgba(0,0,0,.15)
+}
+
+/* Header */
+.header{
+ background:linear-gradient(135deg,#2c3e50,#3498db);
+ color:#fff;padding:60px 50px;
+ display:flex;align-items:center;gap:40px
+}
+
+.profile-photo{
+ width:180px;height:180px;border-radius:50%;
+ border:6px solid #fff;object-fit:cover;
+ box-shadow:0 10px 30px rgba(0,0,0,.3)
+}
+
+.header-content{flex:1}
+.header-content h1{font-size:3em;margin-bottom:10px;font-weight:700}
+.tagline{font-size:1.3em;opacity:.9;margin-bottom:20px;font-style:italic}
+
+.contact-bar{
+ display:flex;gap:30px;flex-wrap:wrap;margin-top:20px
+}
+.contact-item{
+ display:flex;align-items:center;gap:8px;font-size:.95em
+}
+
+/* Navigation */
+.nav-pills{
+ background:#ecf0f1;padding:20px 50px;
+ display:flex;gap:15px;justify-content:center;
+ flex-wrap:wrap;border-bottom:3px solid #3498db
+}
+
+.pill{
+ background:#fff;border:2px solid #3498db;color:#3498db;
+ padding:10px 25px;border-radius:25px;
+ cursor:pointer;font-weight:600;font-size:.9em;
+ text-transform:uppercase;letter-spacing:.5px
+}
+.pill.active{background:#3498db;color:#fff}
+
+/* Content */
+.content{padding:50px}
+.section{margin-bottom:50px}
+
+.section-title{
+ font-size:2em;margin-bottom:25px;
+ padding-left:20px;border-left:5px solid #3498db;
+ font-weight:700
+}
+
+.card{
+ background:#f8f9fa;padding:25px;
+ border-radius:15px;border:1px solid #e9ecef
+}
+
+.target-position h3{
+ color:#3498db;font-size:1.3em;line-height:1.6
+}
+.summary-text{font-size:1.1em;color:#555;line-height:1.9}
+
+/* Education */
+.education-item{
+ position:relative;padding-left:30px;margin-bottom:25px
+}
+.education-item::before{
+ content:"●";position:absolute;left:0;
+ font-size:1.5em;color:#3498db
+}
+.education-item h3{
+ color:#2c3e50;font-size:1.3em;margin-bottom:8px
+}
+.education-item h4{
+ color:#3498db;font-size:1.1em;margin-bottom:5px
+}
+.education-item p{color:#7f8c8d;margin:5px 0}
+
+/* Projects */
+.projects-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+ gap:20px
+}
+
+.project-card{
+ background:#fff;padding:25px;border-radius:15px;
+ border-left:4px solid #3498db;
+ box-shadow:0 3px 10px rgba(0,0,0,.08)
+}
+.project-card h4{
+ color:#2c3e50;font-size:1.2em;margin-bottom:10px
+}
+.tech-stack{
+ color:#3498db;font-size:.9em;
+ font-style:italic;margin-bottom:10px
+}
+.project-card p{color:#666;line-height:1.6}
+
+.placeholder-notice{
+ background:#fff3cd;border-left:4px solid #ffc107;
+ padding:15px;margin-top:10px;border-radius:8px;
+ font-style:italic;color:#856404
+}
+
+
+.cert-item{
+ background:#fff;padding:20px;margin-bottom:15px;
+ border-radius:12px;border-left:4px solid rgb(52, 152, 219);
+ box-shadow:0 3px 10px rgba(0,0,0,.08);
+ display:flex;align-items:center;gap:15px
+}
+.cert-icon{font-size:2em;color:#27ae60}
+.cert-details h4{color:#2c3e50;margin-bottom:5px}
+.cert-details p{color:#7f8c8d;font-size:.95em}
+
+/* Languages */
+.languages-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+ gap:20px
+}
+.language-card{
+ background:#fff;padding:25px;border-radius:15px;
+ text-align:center;
+ box-shadow:0 3px 10px rgba(0,0,0,.08)
+}
+.flag{font-size:3em;margin-bottom:10px}
+.language-card h4{color:#2c3e50;margin-bottom:8px}
+.proficiency{color:rgb(52, 152, 219);font-weight:600}
+
+/* Interests */
+.interests-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+ gap:25px
+}
+.interest-card{
+ height:300px;border-radius:15px;
+ position:relative;overflow:hidden;
+ box-shadow:0 5px 15px rgba(0,0,0,.2)
+}
+.interest-card::before{
+ content:"";position:absolute;inset:0;
+ background:rgba(0,0,0,.5);z-index:1
+}
+.interest-bg{
+ position:absolute;inset:0;object-fit:cover
+}
+.interest-content{
+ position:relative;z-index:2;color:#fff;
+ padding:30px;height:100%;
+ display:flex;flex-direction:column;
+ justify-content:flex-end
+}
+.interest-content h4{
+ font-size:1.8em;margin-bottom:15px;
+ text-shadow:2px 2px 4px rgba(0,0,0,.5)
+}
+.interest-content p{
+ font-size:1.05em;line-height:1.6;
+ text-shadow:1px 1px 3px rgba(0,0,0,.5)
+}
+.tech-interest{
+ background:linear-gradient(135deg,#667eea,#1469a1)
+}
+
+/* Skills */
+.skills-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+ gap:30px
+}
+.skill-card{
+ background:#fff;padding:30px;border-radius:15px;
+ box-shadow:0 5px 15px rgba(0,0,0,.08)
+}
+.skill-card h3{
+ color:#2c3e50;margin-bottom:25px;
+ font-size:1.4em;font-weight:700;
+ padding-bottom:10px;border-bottom:2px solid #3498db
+}
+.skill-item{margin-bottom:25px}
+.skill-header{
+ display:flex;justify-content:space-between;
+ align-items:center;margin-bottom:10px
+}
+.skill-name{
+ color:#495057;font-size:1.05em;font-weight:500
+}
+.skill-level{
+ color:#3498db;font-size:.9em;font-weight:600
+}
+.skill-bar{
+ height:10px;background:#e9ecef;
+ border-radius:10px;overflow:hidden
+}
+.skill-fill{
+ height:100%;border-radius:10px;
+ background:linear-gradient(to right,#3498db,#2980b9);
+ box-shadow:0 2px 5px rgba(52,152,219,.3)
+}
+
+/* Responsive */
+@media(max-width:968px){
+ .header{
+  flex-direction:column;text-align:center;
+  padding:40px 30px
+ }
+ .header-content h1{font-size:2em}
+ .contact-bar{justify-content:center}
+ .content{padding:30px 25px}
+ .skills-grid,.projects-grid,
+ .languages-grid,.interests-grid{
+  grid-template-columns:1fr
+ }
+}
+
     </style>
 </head>
 <body>
     <div class="resume-container">
-        <!-- Header -->
         <div class="header">
             <img src="james.png.png" alt="Profile Photo" class="profile-photo">
             <div class="header-content">
@@ -440,7 +251,7 @@
             </div>
         </div>
         
-        <!-- Navigation -->
+
         <div class="nav-pills">
             <button class="pill" onclick="scrollToSection('target-position')">Target</button>
             <button class="pill" onclick="scrollToSection('summary')">About</button>
@@ -452,9 +263,9 @@
             <button class="pill" onclick="scrollToSection('interests')">Interests</button>
         </div>
         
-        <!-- Content -->
+
         <div class="content">
-            <!-- Target Position -->
+
             <div class="section" id="target-position">
                 <h2 class="section-title">Target Position</h2>
                 <div class="card target-position">
@@ -462,7 +273,7 @@
                 </div>
             </div>
             
-            <!-- Summary -->
+
             <div class="section" id="summary">
                 <h2 class="section-title">Professional Summary</h2>
                 <div class="card">
@@ -475,7 +286,7 @@
                 </div>
             </div>
             
-            <!-- Education -->
+ 
             <div class="section" id="education">
                 <h2 class="section-title">Education</h2>
                 <div class="card">
@@ -498,7 +309,6 @@
                 </div>
             </div>
             
-            <!-- Certifications -->
             <div class="section" id="certifications">
                 <h2 class="section-title">Certifications & Training</h2>
                 <div class="card">
@@ -507,13 +317,11 @@
                         <div class="cert-details">
                             <h4>Cisco CCNA (Cisco Certified Network Associate)</h4>
                             <p>Network Configuration & Management Training</p>
-                            <p style="font-style: italic; color: #3498db;">Because sometimes you need to break a virtual network before fixing a real one!</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Projects -->
             <div class="section" id="projects">
                 <h2 class="section-title">Projects & Practical Experience</h2>
                 <div class="card">
@@ -527,7 +335,6 @@
                 </div>
             </div>
             
-            <!-- Skills -->
             <div class="section" id="skills">
                 <h2 class="section-title">Skills & Competencies</h2>
                 <div class="skills-grid">
@@ -660,8 +467,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Languages -->
+        
             <div class="section" id="languages">
                 <h2 class="section-title">Languages</h2>
                 <div class="card">
@@ -690,7 +496,6 @@
                 </div>
             </div>
             
-            <!-- Interests -->
             <div class="section" id="interests">
                 <h2 class="section-title">Interests & Hobbies</h2>
                 <div class="card">
@@ -714,7 +519,6 @@
                 </div>
             </div>
             
-            <!-- Call to Action -->
             <div class="section">
                 <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 40px;">
                     <h2 style="font-size: 2em; margin-bottom: 15px;">Ready to Start Contributing!</h2>
